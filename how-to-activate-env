@@ -1,0 +1,4 @@
+virtualenv filename
+cd filename
+source bin/activate
+///// for deactivate we type just deactivate

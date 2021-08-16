@@ -1,0 +1,18 @@
+/*
+ * we want to style our banner inside index.html the class name is banner
+ * css has class selector with use of that we will select and design it
+ * */
+.banner{
+    background-color: darkslategrey;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 50px;
+}
+
+.banner-text{
+    top: 50%;
+    left:50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: white;
+}

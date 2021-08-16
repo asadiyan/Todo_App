@@ -1,0 +1,69 @@
+{% extends "myapp/base.html" %}
+
+{% block body %}
+    <!--by having conntainer we can style our page with bootstrap its just for styling-->
+    <!--we create container to use bootstarp-->
+    <div class="container-fluid">
+        <!--to make a row and column first we create row class-->
+        <div class="row">
+            <!--then for each row we have 12 column(col-md-12)-->
+            <div class="col-md-12">
+                <!--we have baner at first we type our app name there-->
+                <div class="banner">
+                    <div class="banner-text">
+                        <h1>ToDo</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--this is another row for our page-->
+        <div class="row">
+            <!--and this row has a 6 coulmn bootstrap-->
+            <div class="col-md-6">
+                <h4>Add Task</h4>
+                <form class="p-3 shadow" method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="enter task">
+                    </div>
+
+                     <div class="form-group">
+                        <input type="date" class="form-control" name="date" id="date">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="priority" id="priority" placeholder="enter task priority">
+                    </div>
+
+                    <input class="btn btn-success" type="submit">
+
+                </form>
+            </div>
+            <!--in this row we used 6 column so we have 6 column remaining-->
+            <div class="col-md-6">
+                <h4>Tasks to be completed</h4>
+                <!--we want to put our tasks inside a card so-->
+                <!--because we want to have card for each task so we have a for loop for that-->
+                {% for task in task_list %}
+                    <div class="shadow card">
+                        <!--inside our card we have a card body so-->
+                        <div class="card-body">
+                            <h5 class="card-titel">{{task.name}}</h5>
+                            <p><b>Priority: {{task.priority}}</b></p>
+                            <p><b>Date:{{task.date}}</b></p>
+
+                            <a class="btn btn-danger" href="{% url 'delete' task.id %}">Done</a>
+                            <a class="btn btn-success" href="{% url 'edit' task.id %}">Edit</a>
+                        </div>
+                    </div>
+                    <!--this br tag creates a space between our cards-->
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

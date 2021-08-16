@@ -1,0 +1,41 @@
+how to go from an idea to implementation of django app.
+
+////////////////////////////////////////////////////////////
+
+Example : Todo App
+
+Step 1 : Decide features.
+
+Step 2 : Break features into model-view-templates.
+
+Step 3 : Create models, views, templates, URL patterns in that order.
+
+first we go ahead to first step
+
+/////////////////////////////////////////////////////////////
+Step 1 :
+
+Todo: Deciding Features
+
+User should be able to perform the following:
+
+1. Add/save tasks.
+2. View tasks.
+3. Update tasks.
+4. Remove tasks.
+
+Feature implementation: Add/save tasks
+
+Imagine the action the user would perform:
+
+1. Enter a URL on browser -> Write URL patterns.
+2. Visits a page which contains a form -> Create a template with a form.
+3. Enter task data and click submit -> A view which handles the POST request and model which saves that data.
+
+the role for creating is this:
+
+models -----> views ------> url pattern
+                |
+                |
+                v
+            templates

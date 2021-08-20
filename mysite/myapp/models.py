@@ -13,7 +13,8 @@ class Task(models.Model):
     name = models.CharField(max_length=100)
     priority = models.IntegerField()
     date = models.DateField(default=datetime.date.today)
-    # when we had create the models we have to make migrations but before of that we should go to setting.py to see if have add the myapp in there
+    # when we had create the models we have to make migrations but before of
+    # that we should go to setting.py to see if have add the myapp in there
     # if we dont add our migrations wont work so we should add our app name to settings.py
     # then we go to consle and type python manage.py makemigrations thrn we type python manage.py migrate
     # after this we can see our models or tables in backend site by having a superuser
